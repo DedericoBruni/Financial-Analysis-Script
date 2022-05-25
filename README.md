@@ -44,6 +44,12 @@ pip install datetime
 ```
 pip install pandas_datareader
 ```
+```
+pip install pyfiglet
+```
+```
+pip install time
+```
 
 --------------------------------------
 
