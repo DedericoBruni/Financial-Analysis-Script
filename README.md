@@ -16,11 +16,13 @@ Requirements:
 --------------------------------------
 
 # How to install Python: 
-Visit the website [Python Download](https://www.python.org/downloads/) 
-and follow the instructions.
+
+Visit the website [Python Download](https://www.python.org/downloads/)
+
 --------------------------------------
 
 # How to install Pip command:
+
 You can find a step-by-step guide here [Pip Installation](https://www.liquidweb.com/kb/install-pip-windows/)
 
 --------------------------------------
