@@ -53,4 +53,6 @@ From CMD navigate to the location where you saved the script and type:
 py Financial-Analysis-Script.py
 ```
 
+![Screenshot](https://github.com/DedericoBruni/Financial-Analysis-Script/blob/49f574ad2aba539209b7f66771a24185968b7436/Pictures/Immagine%202022-05-25%20111910.png)
+
 
