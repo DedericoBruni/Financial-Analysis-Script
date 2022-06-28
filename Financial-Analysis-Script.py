@@ -1,6 +1,30 @@
 import Bruni.Pstd as brn
 from pyfiglet import Figlet
-import time
+import sys, time, threading
+from os import system, name
+
+
+def clear():
+  
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+  
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
+def the_process_function(alloc):
+    k = brn.find_best_allocation(tickers,year,month,day,iterations)
+    for i in range(len(k)):
+        alloc.append(k[i])
+
+def animated_loading():
+    chars = "/—\|" 
+    for char in chars:
+        sys.stdout.write('\r'+'loading...'+char)
+        time.sleep(.1)
+        sys.stdout.flush() 
 
 check = 'y'
 while check == 'y':
@@ -101,7 +125,12 @@ while check == 'y':
         month = int(input('Insert Starting Month: '))
         day = int(input('Insert Starting Day: '))
         iterations = int(input('Number of iterations for Montecarlo Simulation: '))
-        alloc = brn.find_best_allocation(tickers,year,month,day,iterations)
+        alloc = []
+        the_process = threading.Thread(name='process', target=the_process_function,args=(alloc,))
+        the_process.daemon = True
+        the_process.start()
+        while the_process.is_alive():
+            animated_loading()
         i = 0
         for i in range(len(alloc)):
             alloc[i] = round(alloc[i],3)
@@ -109,6 +138,7 @@ while check == 'y':
         print('Best allocations: ', alloc)
         print()
         time.sleep(2)
+        
 
     if choice == '5':
         import datetime as dt
@@ -141,3 +171,5 @@ while check == 'y':
 
 
     check = input('Want to restart?(y/n) ')
+    if check == 'y':
+        clear()
